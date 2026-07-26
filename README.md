@@ -15,7 +15,7 @@ Broadcastwell publishes two different things and they use different methods. Kee
 | Engine used | Anthropic Claude Sonnet with live web search | Claude, OpenAI, Perplexity, Google AI Overviews |
 | Scale | 860 answers, 85 companies, 61 categories | 40 answers per company |
 | Why | Holding the engine constant keeps results comparable across categories. A four-engine study at that scale would require 3,440 runs. | Buyers use different engines. A single engine is not enough to advise one company. |
-| Published at | github.com/Broadcastwell/state-of-geo-2026 | this repository |
+| Published at | [github.com/Broadcastwell/state-of-geo-2026](https://github.com/Broadcastwell/state-of-geo-2026) | this repository |
 
 The study's DOI covers the study only. It does not cover this method.
 
