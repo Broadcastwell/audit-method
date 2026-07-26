@@ -9,19 +9,12 @@ It is published so that anyone receiving a Broadcastwell audit can check how the
 Broadcastwell publishes two different things and they use different methods. Keeping them straight matters.
 
 | | The 2026 State of GEO (study) | Client audit (this document) |
-
 |---|---|---|
-
 | Purpose | Research across a market | Measurement for one company |
-
 | Engines | One, held constant | Four |
-
 | Engine used | Anthropic Claude Sonnet with live web search | Claude, OpenAI, Perplexity, Google AI Overviews |
-
 | Scale | 860 answers, 85 companies, 61 categories | 40 answers per company |
-
 | Why | Holding the engine constant keeps results comparable across categories. A four-engine study at that scale would require 3,440 runs. | Buyers use different engines. A single engine is not enough to advise one company. |
-
 | Published at | github.com/Broadcastwell/state-of-geo-2026 | this repository |
 
 The study's DOI covers the study only. It does not cover this method.
@@ -31,9 +24,7 @@ The study's DOI covers the study only. It does not cover this method.
 For a single company, in a single named category, the audit produces three numbers:
 
 1. Named — in how many answers the company's brand appears
-
 2. Cited — in how many answers the company's own domain appears as a source
-
 3. Named instead — which competitors appeared, and how often
 
 ## The method
@@ -45,13 +36,9 @@ Ten buyer questions are generated for the category before the company's own site
 The ten cover a fixed mix:
 
 - 3 category questions ("best X for Y")
-
 - 2 alternatives questions ("alternatives to X")
-
 - 2 head-to-head comparisons ("X vs Y")
-
 - 2 use-case questions
-
 - 1 pricing or evaluation question
 
 The company's own name is never included in a question.
@@ -61,15 +48,10 @@ The company's own name is never included in a question.
 The same ten questions, worded identically, are put to four engines.
 
 | Engine | Endpoint | Retrieval |
-
 |---|---|---|
-
 | Claude | api.anthropic.com/v1/messages | web_search tool, live |
-
 | OpenAI | api.openai.com/v1/responses | web_search tool, live |
-
 | Perplexity | api.perplexity.ai/chat/completions | sonar model family, live by default |
-
 | Google AI Overviews | SerpApi google engine, plus a second google_ai_overview call when the first returns only a page token | Live Google results |
 
 Ten questions across four engines is forty scored answers per company.
@@ -93,21 +75,15 @@ A call that fails after three retries, or a Google query that returns no AI Over
 ### 5. Aggregation
 
 - A question counts as a miss only if the brand was absent from every engine.
-
 - Questions won on some engines and lost on others are reported separately as partial visibility.
-
 - Per-engine counts are always reported alongside the total, because engines disagree.
 
 ## Limitations, stated plainly
 
 - Run-to-run variance is real. The same question asked twice minutes apart can return a different leader. Broadcastwell has observed this directly. Any single audit is a point-in-time reading, not a fixed score.
-
 - Forty answers is a small sample. Differences of one or two answers between months should not be read as movement.
-
 - Google AI Overviews depends on a third-party scraper, and not every query returns an overview.
-
 - The OpenAI API is not consumer ChatGPT.
-
 - Broadcastwell wrote the questions. They are written to a fixed structural mix, before reviewing the company, but they are not drawn from observed buyer search data.
 
 ## Reproducing this
