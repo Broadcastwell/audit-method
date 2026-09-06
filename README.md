@@ -23,9 +23,9 @@ The study's DOI covers the study only. It does not cover this method.
 
 For a single company, in a single named category, the audit produces three numbers:
 
-1. Named — in how many answers the company's brand appears
-2. Cited — in how many answers the company's own domain appears as a source
-3. Named instead — which competitors appeared, and how often
+1. Named: in how many answers the company's brand appears
+2. Cited: in how many answers the company's own domain appears as a source
+3. Named instead: which competitors appeared, and how often
 
 ## The method
 
