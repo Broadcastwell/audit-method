@@ -1,94 +1,23 @@
 # Broadcastwell Audit Method
 
-> **Method version 1.1, September 2026:** the current Diagnostic protocol is ten category-defining buyer questions, four engines, three documented repeats, 120 observed answers, published at https://broadcastwell.com/methodology. Audits delivered before this date followed the method described below.
+## Current client method v1.1
 
-This is the method Broadcastwell uses to measure whether AI search engines name a company when a buyer asks for the best software in that company's category.
+We measure AI search visibility under [method v1.1, dated 8 September 2026](https://broadcastwell.com/methodology).
 
-It is published so that anyone receiving a Broadcastwell audit can check how the numbers were produced, and so that anyone else can reproduce the measurement independently.
+The AI Visibility Diagnostic uses 35 agreed buyer questions across five engines, with three scheduled runs per question and engine pair. That produces 525 scheduled observed answers. Up to two additional runs resolve disagreement on a pair. We retain and label adaptive answers separately; they do not inflate scheduled headline rates.
 
-## This is not the study
+The question set has 10 core category questions, 10 buyer-role questions, 10 use-case and problem questions, and five evaluation and pricing questions. Discovery questions contain no client or competitor name. Wording is frozen between comparable measurements.
 
-Broadcastwell publishes two different things and they use different methods. Keeping them straight matters.
+We report mentions, citations and recommendation position separately. Headline rates show counts, denominators, exclusions and 95 percent Wilson intervals. Engine failures are recorded and excluded, rather than scored as absences. Per-engine results and question groups remain visible.
 
-| | The 2026 State of GEO (study) | Client audit (this document) |
-|---|---|---|
-| Purpose | Research across a market | Measurement for one company |
-| Engines | One, held constant | Four |
-| Engine used | One engine, held constant, stated in the study | Claude, OpenAI, Perplexity, Google AI Overviews |
-| Scale | 860 answers, 85 companies, 61 categories | 40 answers per company |
-| Why | Holding the engine constant keeps results comparable across categories. A four-engine study at that scale would require 3,440 runs. | Buyers use different engines. A single engine is not enough to advise one company. |
-| Published at | [github.com/Broadcastwell/state-of-geo-2026](https://github.com/Broadcastwell/state-of-geo-2026) | this repository |
+The five engine products are ChatGPT, Claude, Perplexity, Google AI Overviews and Google AI Mode. Client reports name engine products and keep implementation details private.
 
-The study's DOI covers the study only. It does not cover this method.
+## Scope and history
 
-## What gets measured
+The earlier ten-question client text in this repository described historical practice and was incorrectly labelled v1.1. It is superseded by the current method linked above. Previous text remains in Git history. Comparisons stay within the agreed method version and question set.
 
-For a single company, in a single named category, the audit produces three numbers:
+Published research has its own dated methods and limitations. [State of GEO](https://github.com/Broadcastwell/state-of-geo-2026) is separate from client measurement. The [Free 10-question check (one engine)](https://audit.broadcastwell.com) is a separate tool, needs no email, and is not a Diagnostic baseline.
 
-1. Named: in how many answers the company's brand appears
-2. Cited: in how many answers the company's own domain appears as a source
-3. Named instead: which competitors appeared, and how often
+We provide the underlying answers, citations and exclusions with client findings. Contract remedies and the cell-based proof gate are defined in [our terms](https://broadcastwell.com/terms). We do not promise inclusion, ranking or revenue.
 
-## The method
-
-### 1. Question generation
-
-Ten buyer questions are generated for the category before the company's own site is reviewed, so the question set is not shaped to favour the company being measured.
-
-The ten cover a fixed mix:
-
-- 3 category questions ("best X for Y")
-- 2 alternatives questions ("alternatives to X")
-- 2 head-to-head comparisons ("X vs Y")
-- 2 use-case questions
-- 1 pricing or evaluation question
-
-The company's own name is never included in a question.
-
-### 2. The four engines
-
-The same ten questions, worded identically, are put to four engines: Claude, OpenAI, Perplexity and Google AI Overviews. Each is queried with live retrieval enabled, so every answer is drawn from the web as it stood at the time of the run.
-
-Ten questions across four engines is forty scored answers per company.
-
-The automation that runs the queries, the endpoints it calls, the model version strings and any third party involved in collection are implementation rather than method, and are not published. Reports name the engine, not the model string. Nothing in the implementation changes whether a figure is true.
-
-On naming. "OpenAI" here means the OpenAI API with web search enabled. That is not the same product as the consumer ChatGPT application and may return different answers. Google publishes no official AI Overviews API, so overviews are collected indirectly, and not every query returns one.
-
-### 3. Scoring
-
-Each of the forty answers is scored on two binary outcomes.
-
-Named. The brand string is matched on word boundaries, not as a substring, so a company called Pitch does not score a hit on the ordinary word "pitch". Brands that are a single plain alphabetic word are matched case-sensitively for the same reason. Brands containing a dot, digit, hyphen or space are unambiguous and matched case-insensitively.
-
-Cited. Every URL the engine returned as a source is parsed to a hostname and compared against the company's domain. Subdomains of the company's domain count. A different domain that merely contains the company's domain as a substring does not.
-
-Competitor names supplied with the request are matched the same way.
-
-### 4. Failures are excluded, not counted as misses
-
-A call that fails after three retries, or a Google query that returns no AI Overview, is recorded with an error and removed from the denominator. A company is reported as 0 of 39 rather than a misleading 0 of 40.
-
-### 5. Aggregation
-
-- A question counts as a miss only if the brand was absent from every engine.
-- Questions won on some engines and lost on others are reported separately as partial visibility.
-- Per-engine counts are always reported alongside the total, because engines disagree.
-
-## Limitations, stated plainly
-
-- Run-to-run variance is real. The same question asked twice minutes apart can return a different leader. Broadcastwell has observed this directly. Any single audit is a point-in-time reading, not a fixed score.
-- Forty answers is a small sample. Differences of one or two answers between months should not be read as movement.
-- Google AI Overviews is collected indirectly, and not every query returns an overview.
-- The OpenAI API is not consumer ChatGPT.
-- Broadcastwell wrote the questions. They are written to a fixed structural mix, before reviewing the company, but they are not drawn from observed buyer search data.
-
-## Reproducing this
-
-Anyone with API access to the four engines can reproduce the measurement from the description above. There is nothing proprietary in it.
-
-## Contact
-
-Broadcastwell, Bloomington, Indiana
-
-https://broadcastwell.com
+Broadcastwell LLC, Indiana, USA. [broadcastwell.com](https://broadcastwell.com)
